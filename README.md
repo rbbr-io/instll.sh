@@ -41,7 +41,7 @@ Alternatively, I could host it on a separate domain, like I did for [Sitedog](ht
 This service redirects incoming requests to raw GitHub files:
 
 - `instll.sh/user/repo` → redirects to `install.sh` from the main branch
-- `instll.sh/user/repo/uninstall` → redirects to `uninstall.sh` from the main branch
+- `instll.sh/user/repo/uninstall.sh` → redirects to `uninstall.sh` from the main branch
 
 
 ## Use Cases

@@ -12,7 +12,7 @@
 
 		# Match /user/repo/script pattern
 		@custom_script path_regexp user_repo_script ^/([^/]+)/([^/]+)/([^/]+)/?$
-		redir @custom_script https://raw.githubusercontent.com/{re.user_repo_script.1}/{re.user_repo_script.2}/refs/heads/main/{re.user_repo_script.3}.sh 302
+		redir @custom_script https://raw.githubusercontent.com/{re.user_repo_script.1}/{re.user_repo_script.2}/refs/heads/main/{re.user_repo_script.3} 302
 
 		# Default redirect to GitHub repo
 		redir https://github.com/rbbr-io/instll.sh 302
