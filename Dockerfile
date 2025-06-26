@@ -1,11 +1,10 @@
-FROM nginx:alpine
+FROM caddy:2-alpine
 
-# Remove default config
-RUN rm /etc/nginx/conf.d/default.conf
+# Copy Caddyfile configuration
+COPY Caddyfile /etc/caddy/Caddyfile
 
-# Copy your nginx.conf
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
+# Expose port 80
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+# Run Caddy
+CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
