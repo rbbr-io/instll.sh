@@ -1,4 +1,14 @@
-REGISTRY := ghcr.io/rbbr-io/instll.sh
+GIT_REPO := $(shell git remote get-url origin | sed -E 's/.*[\/:]([^\/]+\/[^\/]+)\.git$$/\1/' | sed 's/\.git$$//')
+GIT_URL := $(shell git remote get-url origin)
+REGISTRY := $(shell \
+	if echo "$(GIT_URL)" | grep -q "github.com"; then \
+		echo "ghcr.io/$(GIT_REPO)"; \
+	elif echo "$(GIT_URL)" | grep -q "gitlab.com"; then \
+		echo "registry.gitlab.com/$(GIT_REPO)"; \
+	else \
+		echo "registry.example.com/$(GIT_REPO)"; \
+	fi)
+
 CONTAINER_NAME := instll-sh
 IMAGE_TAG := latest
 
