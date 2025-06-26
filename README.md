@@ -26,7 +26,7 @@ Done!
 
 ## Why use it?
 
-Yeah, I could as well just use `raw.githubusercontent.com` to host my scripts:
+I could just use `raw.githubusercontent.com` to host my scripts:
 
 ```bash
 curl -fsSL raw.githubusercontent.com/user/myproject/refs/heads/main/install.sh | sh
