@@ -4,3 +4,4 @@ instll.sh:
   ip: 138.199.233.98
   hosting: https://rbbr.space/projects/instll_sh/app/server
   goatcounter: https://inem.goatcounter.com/
+  logs: https://rbbr.space/projects/instll_sh/app/server/deployments
