@@ -5,17 +5,36 @@ A simple service that provides short URLs for GitHub-hosted installers.
 ## Try it out
 
 ```bash
-curl -fsSL https://instll.sh/rbbr-io/instll.sh | sh
+curl -fsSL instll.sh/rbbr-io/instll.sh | sh
 ```
 
-## Use it
+## When to use it
+
+When you want to provide a simple way to install your project.
+
+
+## How to use it
+
+1. Add install.sh to your repository
+2. Add installation instructions to your README.md:
+
+  ```bash
+  curl -fsSL instll.sh/<user>/<repo> | sh
+  ```
+
+Done!
+
+## Why use it?
+
+Yeah, I could as well just use `raw.githubusercontent.com` to host my scripts:
 
 ```bash
-curl -fsSL https://instll.sh/user/myproject
+curl -fsSL raw.githubusercontent.com/user/myproject/refs/heads/main/install.sh | sh
 ```
 
-1. Use `curl -fsSL https://instll.sh/user/myproject` instead of `curl -fsSL https://raw.githubusercontent.com/user/myproject/refs/heads/main/install.sh`
-2. No need fo your own infrastructure to host your scripts. Public GitHub repo is enough!
+However, it doesn't look as elegant.
+
+Alternatively, I could host it on a separate domain, like I did for [Sitedog](https://sitedog.io): `get.sitedog.io`. But that would require managing a whole new infrastructure. Instead, I decided to create convention-based serverless installers, so anyone could do it on scale in no clicks!
 
 ## How it works
 
@@ -24,22 +43,6 @@ This service redirects incoming requests to raw GitHub files:
 - `instll.sh/user/repo` → redirects to `install.sh` from the main branch
 - `instll.sh/user/repo/uninstall` → redirects to `uninstall.sh` from the main branch
 
-
-
-
-## Examples
-
-# Install script from main repository
-
-```bash
-curl -fsSL instll.sh/user/myproject | sh
-```
-
-# Run specific script from your repository (e.g. uninstall.sh)
-
-```bash
-curl -fsSL instll.sh/user/myproject/uninstall | sh
-```
 
 ## Use Cases
 
