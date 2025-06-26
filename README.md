@@ -4,7 +4,6 @@ A simple nginx-based service that provides short URLs for GitHub-hosted installe
 
 1. Use `curl -fsSL https://instll.sh/user/myproject` instead of `curl -fsSL https://raw.githubusercontent.com/user/myproject/refs/heads/main/install.sh`
 2. No need fo your own infrastructure to host your scripts. Public GitHub repo is enough!
-3. 
 
 
 ## How it works
