@@ -1,4 +1,5 @@
-CONTAINER_NAME := ghcr.io/rbbr-io/instll.sh
+GITHUB_REPOSITORY := ghcr.io/rbbr-io/instll.sh
+CONTAINER_NAME := $(GITHUB_REPOSITORY)
 IMAGE_TAG := latest
 
 .PHONY: build run stop clean ship
@@ -16,12 +17,8 @@ stop:
 clean: stop
 	docker rmi $(CONTAINER_NAME):$(IMAGE_TAG) || true
 
-# ship:
-# 	docker push $(CONTAINER_NAME):$(IMAGE_TAG)
-
 docker-login:
 	docker login ghcr.io
 
-
 ship:
-	docker push ghcr.io/$(GITHUB_REPOSITORY):latest
+	docker push $(GITHUB_REPOSITORY):$(IMAGE_TAG)
