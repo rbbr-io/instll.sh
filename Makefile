@@ -27,5 +27,21 @@ ship: build
 deploy:
 	curl -X POST http://138.199.233.98:3000/api/deploy/d8c6b2ac68bf2eba9ae9453a7851de35d86890655ba3c235
 
+all: ship deploy dog-push	curl
+
 dog:
 	sitedog render
+
+dog-push:
+	sitedog push
+
+curl:
+	curl -fsSL instll.sh/rbbr-io/instll.sh | sh
+
+push:
+	git push
+
+commit:
+	git add .
+	git commit -m "..."
+
