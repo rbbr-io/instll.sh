@@ -45,3 +45,4 @@ commit:
 	git add .
 	git commit -m "..."
 
+commit!: commit push
