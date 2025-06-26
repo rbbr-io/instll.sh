@@ -6,8 +6,8 @@ A simple nginx-based service that provides short URLs for GitHub-hosted shell sc
 
 This service redirects incoming requests to raw GitHub files:
 
-- `yourhost.com/username/reponame` → redirects to `install.sh` from the main branch
-- `yourhost.com/username/reponame/scriptname` → redirects to `scriptname.sh` from the main branch
+- `instll.sh/username/reponame` → redirects to `install.sh` from the main branch
+- `instll.sh/username/reponame/scriptname` → redirects to `scriptname.sh` from the main branch
 
 ## Examples
 

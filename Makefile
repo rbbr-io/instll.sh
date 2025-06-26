@@ -5,7 +5,7 @@ IMAGE_TAG := latest
 .PHONY: build run stop clean ship
 
 build:
-	docker build -t $(CONTAINER_NAME):$(IMAGE_TAG) .
+	docker build --platform linux/amd64 -t $(CONTAINER_NAME):$(IMAGE_TAG) .
 
 run:
 	docker run -d --name $(CONTAINER_NAME) -p 80:80 $(CONTAINER_NAME):$(IMAGE_TAG)
