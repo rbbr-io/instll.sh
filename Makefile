@@ -46,3 +46,6 @@ commit:
 	git commit -m "..."
 
 commit!: commit push
+
+open:
+	open https://instll.sh/rbbr-io/instll.sh
