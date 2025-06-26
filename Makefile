@@ -1,4 +1,4 @@
-CONTAINER_NAME := ghcr.io/inem/instll.sh
+CONTAINER_NAME := ghcr.io/rbbr-io/instll.sh
 IMAGE_TAG := latest
 
 .PHONY: build run stop clean ship
