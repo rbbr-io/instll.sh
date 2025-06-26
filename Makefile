@@ -48,4 +48,4 @@ commit:
 commit!: commit push
 
 open:
-	open https://instll.sh/rbbr-io/instll.sh
+	open https://github.com/rbbr-io/instll.sh
