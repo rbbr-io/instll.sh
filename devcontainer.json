@@ -1,0 +1,11 @@
+{
+  "secrets": {
+    "GHCR_PAT": {
+      "description": "PAT with write:packages for ghcr.io"
+    }
+  },
+
+  "containerEnv": {
+    "GHCR_PAT": "${localEnv:GHCR_PAT}"
+  }
+}
