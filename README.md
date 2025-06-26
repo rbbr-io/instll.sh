@@ -13,10 +13,10 @@ This service redirects incoming requests to raw GitHub files:
 
 ```bash
 # Install script from main repository
-curl -fsSL yourhost.com/user/myproject | bash
+curl -fsSL instll.sh/user/myproject | sh
 
-# Run specific script from repository
-curl -fsSL yourhost.com/user/myproject/setup | bash
+# Run specific script from repository (e.g. install.sh)
+curl -fsSL instll.sh/user/myproject/uninstall | sh
 ```
 
 This redirects to:
