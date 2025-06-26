@@ -1,0 +1,6 @@
+instll.sh:
+  dns: https://namecheap.com
+  repo: https://github.com/rbbr-io/instll.sh
+  ip: 138.199.233.98
+  hosting: https://rbbr.space/projects/instll_sh/app/server
+
