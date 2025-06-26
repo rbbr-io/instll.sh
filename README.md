@@ -2,6 +2,14 @@
 
 A simple service that provides short URLs for GitHub-hosted installers.
 
+## Try it out
+
+```bash
+curl -fsSL https://instll.sh/rbbr-io/instll.sh | sh
+```
+
+## Use it
+
 ```bash
 curl -fsSL https://instll.sh/user/myproject
 ```
@@ -16,7 +24,6 @@ This service redirects incoming requests to raw GitHub files:
 - `instll.sh/user/repo` → redirects to `install.sh` from the main branch
 - `instll.sh/user/repo/uninstall` → redirects to `uninstall.sh` from the main branch
 
-## Try it
 
 
 
