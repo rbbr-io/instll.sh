@@ -20,5 +20,8 @@ clean: stop
 docker-login:
 	docker login ghcr.io
 
-ship:
+ship: build
 	docker push $(GITHUB_REPOSITORY):$(IMAGE_TAG)
+
+deploy:
+	curl -X POST http://138.199.233.98:3000/api/deploy/d8c6b2ac68bf2eba9ae9453a7851de35d86890655ba3c235
