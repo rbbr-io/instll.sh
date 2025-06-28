@@ -13,8 +13,8 @@
 		header @install_script Expires "0"
 		redir @install_script https://raw.githubusercontent.com/{re.user_repo.1}/{re.user_repo.2}/refs/heads/main/install.sh?t={time.unix} 302
 
-		# Match /user/repo/script pattern
-		@custom_script path_regexp user_repo_script ^/([^/]+)/([^/]+)/([^/]+)/?$
+		# Match /user/repo/script pattern (может содержать подпапки)
+		@custom_script path_regexp user_repo_script ^/([^/]+)/([^/]+)/(.+)$
 		header @custom_script Cache-Control "no-cache, no-store, must-revalidate"
 		header @custom_script Pragma "no-cache"
 		header @custom_script Expires "0"
