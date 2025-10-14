@@ -18,7 +18,7 @@
 		header @custom_script Cache-Control "no-cache, no-store, must-revalidate"
 		header @custom_script Pragma "no-cache"
 		header @custom_script Expires "0"
-		redir @custom_script https://raw.githubusercontent.com/{re.user_repo_script.1}/{re.user_repo_script.2}/refs/heads/main/instll/{re.user_repo_script.3}.sh?t={time.unix} 302
+		redir @custom_script https://raw.githubusercontent.com/{re.user_repo_script.1}/{re.user_repo_script.2}/refs/heads/main/instll/{re.user_repo_script.3}?t={time.unix} 302
 
 		# Default redirect to GitHub repo
 		redir https://github.com/rbbr-io/instll.sh 302
