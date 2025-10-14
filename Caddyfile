@@ -11,14 +11,14 @@
 		header @install_script Cache-Control "no-cache, no-store, must-revalidate"
 		header @install_script Pragma "no-cache"
 		header @install_script Expires "0"
-		redir @install_script https://raw.githubusercontent.com/{re.user_repo.1}/{re.user_repo.2}/refs/heads/main/instll/install?t={time.now.unix_ms} 302
+		redir @install_script https://raw.githubusercontent.com/{re.user_repo.1}/{re.user_repo.2}/refs/heads/main/instll/install?t={request.uuid} 302
 
 		# /user/repo/file → instll/file
 		@file path_regexp user_repo_file ^/([^/]+)/([^/]+)/(.+)$
 		header @file Cache-Control "no-cache, no-store, must-revalidate"
 		header @file Pragma "no-cache"
 		header @file Expires "0"
-		redir @file https://raw.githubusercontent.com/{re.user_repo_file.1}/{re.user_repo_file.2}/refs/heads/main/instll/{re.user_repo_file.3}?t={time.now.unix_ms} 302
+		redir @file https://raw.githubusercontent.com/{re.user_repo_file.1}/{re.user_repo_file.2}/refs/heads/main/instll/{re.user_repo_file.3}?t={request.uuid} 302
 
 		# fallback
 		redir https://github.com/rbbr-io/instll.sh 302
