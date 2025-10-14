@@ -24,15 +24,15 @@ echo -e "${GREEN}✅ Success!${NC} You just executed an install script via instl
 echo ""
 
 echo -e "${BLUE}📋 How it works:${NC}"
-echo -e "   ${YELLOW}•${NC} You ran: ${PURPLE}curl -sSL instll.sh/rbbr-io/instll.sh | bash${NC}"
+echo -e "   ${YELLOW}•${NC} You ran: ${PURPLE}curl -fsSL instll.sh/rbbr-io/instll.sh | bash${NC}"
 echo -e "   ${YELLOW}•${NC} Service redirected to: ${PURPLE}raw.githubusercontent.com/rbbr-io/instll.sh/refs/heads/main/install.sh${NC}"
 echo -e "   ${YELLOW}•${NC} Your shell executed this script automatically"
 echo ""
 
 echo -e "${BLUE}🔧 Usage examples:${NC}"
-echo -e "   ${YELLOW}curl -sSL instll.sh/username/reponame | bash${NC}          # Get install.sh"
-echo -e "   ${YELLOW}curl -sSL instll.sh/username/reponame/setup | bash${NC}    # Get setup.sh"
-echo -e "   ${YELLOW}curl -sSL instll.sh/username/reponame/deploy | bash${NC}   # Get deploy.sh"
+echo -e "   ${YELLOW}curl -fsSL instll.sh/username/reponame | bash${NC}          # Get install.sh"
+echo -e "   ${YELLOW}curl -fsSL instll.sh/username/reponame/setup | bash${NC}    # Get setup.sh"
+echo -e "   ${YELLOW}curl -fsSL instll.sh/username/reponame/deploy | bash${NC}   # Get deploy.sh"
 echo ""
 
 echo -e "${GREEN}🎉 Perfect for:${NC}"
