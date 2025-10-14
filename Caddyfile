@@ -13,12 +13,19 @@
 		header @install_script Expires "0"
 		redir @install_script https://raw.githubusercontent.com/{re.user_repo.1}/{re.user_repo.2}/refs/heads/main/instll/install.sh?t={time.unix} 302
 
-		# Match /user/repo/script pattern → instll/script.sh (auto-add .sh extension)
-		@custom_script path_regexp user_repo_script ^/([^/]+)/([^/]+)/(.+)$
-		header @custom_script Cache-Control "no-cache, no-store, must-revalidate"
-		header @custom_script Pragma "no-cache"
-		header @custom_script Expires "0"
-		redir @custom_script https://raw.githubusercontent.com/{re.user_repo_script.1}/{re.user_repo_script.2}/refs/heads/main/instll/{re.user_repo_script.3}.sh?t={time.unix} 302
+		# Match /user/repo/script.sh pattern → instll/script.sh (exact match)
+		@script_with_sh path_regexp user_repo_script_sh ^/([^/]+)/([^/]+)/(.+)\.sh$
+		header @script_with_sh Cache-Control "no-cache, no-store, must-revalidate"
+		header @script_with_sh Pragma "no-cache"
+		header @script_with_sh Expires "0"
+		redir @script_with_sh https://raw.githubusercontent.com/{re.user_repo_script_sh.1}/{re.user_repo_script_sh.2}/refs/heads/main/instll/{re.user_repo_script_sh.3}.sh?t={time.unix} 302
+
+		# Match /user/repo/file pattern → instll/file (no .sh extension, supports subfolders)
+		@file_without_sh path_regexp user_repo_file ^/([^/]+)/([^/]+)/(.+)$
+		header @file_without_sh Cache-Control "no-cache, no-store, must-revalidate"
+		header @file_without_sh Pragma "no-cache"
+		header @file_without_sh Expires "0"
+		redir @file_without_sh https://raw.githubusercontent.com/{re.user_repo_file.1}/{re.user_repo_file.2}/refs/heads/main/instll/{re.user_repo_file.3}?t={time.unix} 302
 
 		# Default redirect to GitHub repo
 		redir https://github.com/rbbr-io/instll.sh 302
