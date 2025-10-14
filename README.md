@@ -43,9 +43,46 @@ Alternatively, I could host it on a separate domain, like I did for [Sitedog](ht
 
 This service redirects incoming requests to raw GitHub files:
 
-- `instll.sh/user/repo` → redirects to `instll/install.sh` from the main branch
-- `instll.sh/user/repo/uninstall` → redirects to `instll/uninstall.sh` from the main branch
-- `instll.sh/user/repo/ci-install` → redirects to `instll/ci-install.sh` from the main branch
+### 1. **Main install script** - `instll.sh/user/repo`
+- **URL**: `instll.sh/inem/rocks`
+- **Result**: `raw.githubusercontent.com/inem/rocks/main/instll/install.sh`
+- **Purpose**: Downloads the main installation script
+
+### 2. **Custom scripts** - `instll.sh/user/repo/script`
+- **URL**: `instll.sh/inem/rocks/init`
+- **Result**: `raw.githubusercontent.com/inem/rocks/main/instll/init.sh`
+- **Purpose**: Downloads any script from the `instll/` folder
+
+### 3. **Nested folders** - `instll.sh/user/repo/folder/file`
+- **URL**: `instll.sh/inem/rocks/rocks/make-engine`
+- **Result**: `raw.githubusercontent.com/inem/rocks/main/instll/rocks/make-engine`
+- **Purpose**: Downloads files from subfolders in `instll/`
+
+## Usage Examples
+
+```bash
+# Main installation script
+curl -fsSL instll.sh/inem/rocks | bash
+
+# Custom scripts
+curl -fsSL instll.sh/inem/rocks/init | bash
+curl -fsSL instll.sh/inem/rocks/uninstall | bash
+
+# Files from subfolders
+curl -fsSL instll.sh/inem/rocks/rocks/make-engine > make-engine.mk
+```
+
+## Repository Structure
+
+```
+repo/
+├── instll/
+│   ├── install.sh          # Main script
+│   ├── init.sh             # Initialization script
+│   ├── uninstall.sh        # Uninstall script
+│   └── rocks/              # Subfolder
+│       └── make-engine     # File from subfolder
+```
 
 **Convention:** All install scripts should be placed in the `instll/` folder (without 'a'). The `.sh` extension is automatically added to script names in URLs.
 
