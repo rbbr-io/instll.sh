@@ -32,12 +32,12 @@ Done!
 I could just use `raw.githubusercontent.com` to host my scripts:
 
 ```bash
-curl -fsSL raw.githubusercontent.com/user/myproject/refs/heads/main/install.sh | sh
+curl -fsSL raw.githubusercontent.com/user/myproject/refs/heads/main/install | sh
 ```
 
 However, it doesn't look as elegant.
 
-Alternatively, I could host it on a separate domain, like I did for [Sitedog](https://sitedog.io): `get.sitedog.io`. But that would require managing a whole new infrastructure. Instead, I decided to create convention-based serverless installers, so anyone could do it on scale in no clicks!
+Alternatively, I could host it on a separate domain, like I first did for [Parascope](https://parascope.dev): `get.parascope.dev`. But that would require managing a whole new infrastructure. Instead, I decided to create convention-based serverless installers, so anyone could do it on scale in no clicks!
 
 ## How it works
 
@@ -49,14 +49,9 @@ This service redirects incoming requests to raw GitHub files:
 - **Purpose**: Downloads the main installation script
 
 ### 2. **Custom scripts** - `instll.sh/user/repo/script`
-- **URL**: `instll.sh/inem/rocks/init`
-- **Result**: `raw.githubusercontent.com/inem/rocks/main/instll/init.sh`
+- **URL**: `instll.sh/inem/rocks/add`
+- **Result**: `raw.githubusercontent.com/inem/rocks/main/instll/add.sh`
 - **Purpose**: Downloads any script from the `instll/` folder
-
-### 3. **Nested folders** - `instll.sh/user/repo/folder/file`
-- **URL**: `instll.sh/inem/rocks/rocks/make-engine`
-- **Result**: `raw.githubusercontent.com/inem/rocks/main/instll/rocks/make-engine`
-- **Purpose**: Downloads files from subfolders in `instll/`
 
 ## Usage Examples
 
@@ -77,14 +72,14 @@ curl -fsSL instll.sh/inem/rocks/rocks/make-engine > make-engine.mk
 ```
 repo/
 ├── instll/
-│   ├── install.sh          # Main script
-│   ├── init.sh             # Initialization script
-│   ├── uninstall.sh        # Uninstall script
-│   └── rocks/              # Subfolder
-│       └── make-engine     # File from subfolder
+│   ├── install          # Main script
+│   ├── init             # Initialization script
+│   ├── uninstall        # Uninstall script
+│   └── rocks/           # Subfolder
+│       └── make-engine  # File from subfolder
 ```
 
-**Convention:** All install scripts should be placed in the `instll/` folder (without 'a'). The `.sh` extension is automatically added to script names in URLs.
+**Convention:** All install scripts should be placed in the `instll/` folder (without 'a'). 
 
 
 ## Use Cases
